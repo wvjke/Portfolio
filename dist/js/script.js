@@ -17,3 +17,25 @@ document.addEventListener('mousedown', (e) => {
       menu.classList.remove('active')
    }
 });
+
+const percents = document.querySelectorAll('.skills__progress-percent'),
+    lines = document.querySelectorAll('.skills__progress-bars-value');
+
+percents.forEach((item, i) => {
+    lines[i].style.width = item.innerHTML;
+});
+
+const anchors = document.querySelectorAll('a[href*="#"]')
+
+for (let anchor of anchors) {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault()
+    
+    const blockID = anchor.getAttribute('href').substr(1)
+    
+    document.getElementById(blockID).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  })
+}
